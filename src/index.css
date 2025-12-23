@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-light dark:bg-background-dark text-[#11221f] dark:text-white font-body overflow-x-hidden;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-primary text-background-dark;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f1115;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #232936;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333b4d;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(22, 27, 34, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass {
+    background: rgba(17, 34, 31, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(19, 236, 200, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(22, 27, 34, 0.6);
+    border-color: rgba(19, 236, 200, 0.3);
+    box-shadow: 0 0 15px rgba(19, 236, 200, 0.1);
+  }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    animation: float 10s infinite ease-in-out;
+  }
+
+  .gradient-blur {
+    background: radial-gradient(circle at center, rgba(88, 28, 135, 0.15) 0%, rgba(19, 236, 200, 0.05) 40%, rgba(16, 34, 31, 0) 70%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Login page specific styles */
+  .glass-input {
+    transition: all 0.3s ease;
+  }
+
+  .glass-input:focus-within {
+    box-shadow: 0 0 0 2px rgba(19, 236, 200, 0.3);
+  }
+
+  .animate-mesh {
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
