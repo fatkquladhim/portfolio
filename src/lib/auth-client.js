@@ -1,10 +1,8 @@
 import { createAuthClient } from "better-auth/react"
 
 export const authClient = createAuthClient({
-    // Gunakan variabel environment dari Vercel
-    baseURL: import.meta.env.VITE_API_BASE_URL,
+    baseURL: import.meta.env.VITE_API_BASE_URL ? `${import.meta.env.VITE_API_BASE_URL}/auth` : "https://portfolio-api-production-5604.up.railway.app/api",
     fetchOptions: {
-        // Tanpa baris ini, session tidak akan pernah terbaca oleh server (Error 401)
         credentials: "include"
     }
 })
